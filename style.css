@@ -32,3 +32,17 @@ body {
   align-items: center;
   gap: 20px;
 }
+.box, .box-fabric {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #333333;
+
+}
+
+.colorOption, .fabricOption {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
