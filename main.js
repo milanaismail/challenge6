@@ -7,7 +7,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const loader = new GLTFLoader();
 
 const dracoLoader = new DRACOLoader();
@@ -17,8 +17,10 @@ loader.setDRACOLoader(dracoLoader);
 const renderer = new THREE.WebGLRenderer();
 renderer.shadowMap.enabled = true;
 renderer.setSize( window.innerWidth, window.innerHeight );
-renderer.setAnimationLoop( animate );
-document.body.appendChild( renderer.domElement );
+const canvas = document.querySelector('.canvas-container');
+canvas.appendChild(renderer.domElement);
+
+renderer.setPixelRatio(window.devicePixelRatio);
 
 
 //add public/cubemap
@@ -162,3 +164,4 @@ function animate() {
 renderer.render(scene, camera);
 
 }
+animate();

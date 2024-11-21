@@ -3,11 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Swear customizer</title>
   </head>
   <body>
-    <div id="app"></div>
+        <div class="wrapper">
+            <div class="canvas-container"></div>
+
+            <div class="customizer-container">
+            <h1 id="name"></h1>
+                <div class="color-fabric-container">
+                    <h2>Colors</h2>
+                   
+
+                    <h2>Fabrics</h2>
+                  
+                    <div class="size-container">
+                        <label for="size">Size</label>
+                        <select name="size" id="size">
+                        <option value="" disabled selected>Select</option>
+                        <option value="size-36">36</option>
+                        <option value="size-37">37</option>
+                        <option value="size-38">38</option>
+                        <option value="size-39">39</option>
+                        <option value="size-40">40</option>
+                        <option value="size-41">41</option>
+                        <option value="size-42">42</option>
+                        </select>
+                    </div>
+                </div>
+
+                    <button id="orderButton" disabled>Order now</button>
+          </div>
+        </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
+
+    
