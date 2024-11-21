@@ -1,5 +1,6 @@
 import './style.css';
 import * as THREE from 'three';
+import { GUI } from 'dat.gui'; // Import dat.gui
 //import gftloader
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 //import draco loader
@@ -135,8 +136,29 @@ camera.position.y = 0.65;
 camera.position.z = 1; 
 camera.lookAt(0, 0, 0);
 
-function animate() {
+const gui = new GUI();
+const settings = {
+    ambientLightIntensity: 1.9,
+    directionalLightIntensity: 1.3,
+    shoeRotationSpeed: 0.01,
+};
+let shoeRotationSpeed = 0.01; // Initialize the default rotation speed
 
-	renderer.render( scene, camera );
+// Add settings to GUI
+gui.add(settings, 'ambientLightIntensity', 0, 3, 0.1).onChange((value) => {
+    ambientLight.intensity = value;
+});
+gui.add(settings, 'directionalLightIntensity', 0, 3, 0.1).onChange((value) => {
+    directionalLight.intensity = value;
+});
+gui.add(settings, 'shoeRotationSpeed', 0, 0.1, 0.01).onChange((value) => {
+    shoeRotationSpeed = value;
+});
+
+function animate() {
+  if (shoe) {
+    shoe.rotation.y += shoeRotationSpeed; // Rotate shoe based on GUI setting
+}
+renderer.render(scene, camera);
 
 }
